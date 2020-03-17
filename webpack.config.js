@@ -1,7 +1,9 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './index.js',
+  entry: path.join(__dirname, 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -19,5 +21,9 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['dist'] }),
+    new htmlWebpackPlugin({ inject: 'body', title: 'Toaster Web Component', template: './index.html' })
+  ]
 };
