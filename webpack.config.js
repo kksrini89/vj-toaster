@@ -24,6 +24,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['dist'] }),
-    new htmlWebpackPlugin({ inject: 'body', title: 'Toaster Web Component', template: './index.html' })
+    new htmlWebpackPlugin({ inject: 'head', title: 'Toaster Web Component', template: './index.html' })
   ]
 };
