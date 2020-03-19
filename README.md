@@ -2,6 +2,10 @@
 
 > To show popup message for warning, error, info.
 
+## Final UI
+
+![Toaster_Web_Component](screenshots/Toaster.png)
+
 ## Install
 
 ```
