@@ -1,38 +1,26 @@
-# vj-auto-carousel
+# vj-toaster
 
-> To generate carousel based on container element count.
+> To show popup message for warning, error, info.
 
 ## Install
 
 ```
- npm install vj-auto-carousel -S
+ npm install vj-toaster -S
 ```
 
 ## Usage
 ```html
-<vj-auto-carousel length="5">
-    <div slot="default">
-        Hello this is default text.
+<vj-toaster length="5">
+    <div slot="message">
+        Hello this is default toaster message.
     </div>
-</vj-auto-carousel>
-```
-```css
-<style>
- :root {
-    --default-carousel-bg-color: #fff;
-    --selected-carousel-bg-color: #fdabe9;
- }
-</style>
+</vj-toaster>
 ```
 
-## Attributes
+## Config
 
-### length
-Accepts elements count value residing within a container html element.
-
-### default slot
+### message slot
 For custom message to be displayed.
-
 
 ## License
 MIT &copy; [Srinivasan K K](https://srinivasankk.com)

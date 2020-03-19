@@ -1,3 +1,5 @@
+import './styles.css';
+
 // HTML - Template Markup
 
 const tmpl = document.createElement('template');

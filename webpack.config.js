@@ -1,6 +1,9 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const copyWebpackPlugin = require('copy-webpack-plugin');
+const extractTextPlugin = require('extract-text-webpack-plugin');
+const miniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'index.js'),
@@ -8,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -19,11 +23,26 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', miniCSSExtractPlugin.loader, 'css-loader']
+        // use: ['style-loader', 'css-loader']
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['dist'] }),
+    new CleanWebpackPlugin(),
+    new copyWebpackPlugin([
+      {
+        context: 'node_modules/@webcomponents/webcomponentsjs',
+        from: '**/*.js',
+        to: 'webcomponents'
+      }
+    ]),
+    new miniCSSExtractPlugin({
+      filename: 'styles.css'
+    }),
     new htmlWebpackPlugin({ inject: 'head', title: 'Toaster Web Component', template: './index.html' })
   ]
 };
