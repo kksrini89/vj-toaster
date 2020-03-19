@@ -3,24 +3,32 @@
 const tmpl = document.createElement('template');
 tmpl.innerHTML = `
 <style>
-  .message {
+  .container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+  }
+  ::slotted(*) {
     color: red;
-    text-align: center;
+    text-align: left;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>
 <div class="container">
-<div class="message"></div>
+  <slot name="message"></slot>
 </div>`;
 
 // Custom Elements - Shadow DOM
 class ToasterComponent extends HTMLElement {
   constructor() {
     super();
-    this._shadowRoot = this.attachShadow({ mode: 'open' });    
-  }
-
-  static get observedAttributes() {
-    return ['message'];
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
   }
 
   // Life Cycle Events
