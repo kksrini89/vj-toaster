@@ -11,10 +11,18 @@
     <script src="webcomponents/webcomponents-loader.js"></script>
   </head>
   <body>
-    <vj-toaster>
+    <button id="btn">Show Toaster</button>
+    <vj-toaster id="toasterId">
       <div slot="message">
         I am toaster message vareee var what a tremendous improvement
       </div>
     </vj-toaster>
+    <script>
+      window.addEventListener('load', e => {
+        document.getElementById('btn').addEventListener('click', e => {
+          document.getElementById('toasterId').visible = !document.getElementById('toasterId').visible;
+        });
+      });
+    </script>
   </body>
 </html>

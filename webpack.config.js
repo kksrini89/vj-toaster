@@ -27,12 +27,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', miniCSSExtractPlugin.loader, 'css-loader']
-        // use: ['style-loader', 'css-loader']
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['dist']
+    }),
     new copyWebpackPlugin([
       {
         context: 'node_modules/@webcomponents/webcomponentsjs',
