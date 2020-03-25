@@ -6,6 +6,14 @@ const tmpl = document.createElement('template');
 tmpl.innerHTML = `
 <style>
   :host {
+    --warning-bg-color: #FF851B;
+    --warning-text-color: #FFF;
+    --error-bg-color: #FF4136;
+    --error-text-color: #FFF;
+    --info-bg-color: #DDD;
+    --info-text-color: #333;
+  }
+  :host {
     display: none;
   }
   .container {
@@ -20,12 +28,46 @@ tmpl.innerHTML = `
     display: block;
   }
   ::slotted(*) {
-    color: red;
     text-align: left;
     max-width: 300px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  :host([type="warning"]) .container {
+    background-color: var(--warning-bg-color);
+    color: var(--warning-text-color);
+  }
+
+  :host([type="error"]) .container {
+    background-color: var(--error-bg-color);
+    color: var(--error-text-color);
+  }
+
+  :host([type="info"]) .container {
+    background-color: var(--info-bg-color);
+    color: var(--info-text-color);
+  }
+
+  .top-right {
+    top: 10%;
+    right: 10%;
+  }
+
+  .top-left {
+    top: 10%;
+    left: 10%;
+  }
+
+  .bottom-right {
+    bottom: 10%;
+    right: 10%;
+  }
+
+  .bottom-left {
+    bottom: 10%;
+    left: 10%;
   }
 </style>
 <div class="container">
@@ -37,7 +79,6 @@ class ToasterComponent extends HTMLElement {
   constructor() {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
-    // this.visible = false;
   }
 
   // Life Cycle Events

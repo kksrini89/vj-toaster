@@ -2,5 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
   height: 100%;
+}
+
+#btn {
+  height: 35px;
+  width: 100px;
+  background-color: coral;
 }
