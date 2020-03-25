@@ -12,27 +12,15 @@
   </head>
   <body>
     <button id="btn">Show Toaster</button>
-    <!-- <vj-toaster id="toasterId1" type="warning">
+    <vj-toaster id="toasterId1" type="warning">
       <div slot="message">
         Toaster Warning Message
       </div>
-    </vj-toaster> -->
-    <vj-toaster id="toasterId2" type="error">
-      <div slot="message">
-        Toaster Error Message
-      </div>
     </vj-toaster>
-    <!-- <vj-toaster id="toasterId3" type="info">
-      <div slot="message">
-        Toaster Info Message
-      </div>
-    </vj-toaster> -->
     <script>
       window.addEventListener('load', e => {
         document.getElementById('btn').addEventListener('click', e => {
-          // document.getElementById('toasterId1').visible = !document.getElementById('toasterId1').visible;
-          document.getElementById('toasterId2').visible = !document.getElementById('toasterId2').visible;
-          // document.getElementById('toasterId3').visible = !document.getElementById('toasterId3').visible;
+          document.getElementById('toasterId1').visible = !document.getElementById('toasterId1').visible;
         });
       });
     </script>

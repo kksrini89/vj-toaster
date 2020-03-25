@@ -1,10 +1,10 @@
 # vj-toaster
 
-> To show popup message for warning, error, info.
+> To show toaster (popup) message for warning, error, info.
 
-## Final UI
+## Toaster UI
 
-![Toaster_Web_Component](screenshots/Toaster.png)
+![Toaster_Web_Component](screenshots/Toaster-types.png)
 
 ## Install
 
@@ -14,14 +14,32 @@
 
 ## Usage
 ```html
-<vj-toaster length="5">
+<vj-toaster id="toasterId" type="error">
     <div slot="message">
-        Hello this is default toaster message.
+        Toaster Error Message
     </div>
 </vj-toaster>
 ```
+By default, Toaster component is hidden. To enable it set `visible` property to true in the event handler of any HTML element.
+```javascript
+window.addEventListener('load', e => {
+    document.getElementById('btn').addEventListener('click', e => {
+        document.getElementById('toasterId').visible = !document.getElementById('toasterId').visible;
+    });
+});
+```
 
 ## Config
+
+### type
+Type: `String`
+
+Value: `'warning' | 'error' | 'info'`
+
+Toaster web component type.
+
+### visible
+To show or hide the toaster web component.
 
 ### message slot
 For custom message to be displayed.
