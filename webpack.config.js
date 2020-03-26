@@ -9,9 +9,12 @@ module.exports = {
   entry: path.join(__dirname, 'index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'vj-toaster.js',
+    library: 'vj-toaster',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -31,9 +34,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['dist']
-    }),
+    new CleanWebpackPlugin(),
     new copyWebpackPlugin([
       {
         context: 'node_modules/@webcomponents/webcomponentsjs',

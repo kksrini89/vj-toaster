@@ -2,8 +2,8 @@
   "name": "vj-toaster",
   "version": "1.0.0",
   "description": "Toaster vanilla js web component",
-  "main": "index.js",
-  "module": "dist/bundle.js",
+  "main": "dist/vj-toaster.js",
+  "module": "dist/vj-toaster.js",
   "files": [
     "dist"
   ],
