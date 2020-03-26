@@ -9,6 +9,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@webcomponents/webcomponentsjs": "^2.4.1",
@@ -24,8 +25,9 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production"
+    "dev": "webpack --mode development && npm run build-ie",
+    "build-ie":"./node_modules/.bin/babel ./dist/vj-toaster.js --out-file ./dist/vj-toaster-build.js",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
